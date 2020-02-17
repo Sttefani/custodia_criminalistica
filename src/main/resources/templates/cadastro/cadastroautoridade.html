@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<title>Criminalistica - Custódia</title>
+</head>
+<body>
+	<h1>Cadastro de Autoridade</h1>
+</body>
+<form action="salvarautoridade" method="post">
+	<label>Autoridade</label> <input name="nome"> <label>Cargo</label>
+	<select id="cargo" th:field="*{cargo}">
+		<option th:each="cargo : ${cargo}"
+			th:text="${autoridade.cargo.getCargo}" th:value="${cargo}"></option>
+	</select> <label>Origem</label> <select id="origem" th:field="*{origem}">
+		<option th:each="origem : ${origem}"
+			th:text="${autoridade.origem.getOrigem}" th:value="${origem}"></option>
+	</select> <input type="submit" value="Salvar">
+</form>
+</html>
